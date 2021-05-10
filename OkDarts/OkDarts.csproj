@@ -110,7 +110,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MainBg.png" />
+    <Resource Include="Images\MainBg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IconDarts.ico" />
@@ -122,43 +124,109 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MainStartBg.png" />
+    <Resource Include="Images\MainStartBg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Cricket0.png" />
-    <Resource Include="Images\Cricket1.png" />
-    <Resource Include="Images\Cricket2.png" />
-    <Resource Include="Images\Cricket3.png" />
+    <Resource Include="Images\Cricket0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Cricket1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Cricket2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Cricket3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\cricket15_0.png" />
-    <Resource Include="Images\cricket15_1.png" />
-    <Resource Include="Images\cricket15_2.png" />
-    <Resource Include="Images\cricket15_3.png" />
-    <Resource Include="Images\cricket16_0.png" />
-    <Resource Include="Images\cricket16_1.png" />
-    <Resource Include="Images\cricket16_2.png" />
-    <Resource Include="Images\cricket16_3.png" />
-    <Resource Include="Images\cricket17_0.png" />
-    <Resource Include="Images\cricket17_1.png" />
-    <Resource Include="Images\cricket17_2.png" />
-    <Resource Include="Images\cricket17_3.png" />
-    <Resource Include="Images\cricket18_0.png" />
-    <Resource Include="Images\cricket18_1.png" />
-    <Resource Include="Images\cricket18_2.png" />
-    <Resource Include="Images\cricket18_3.png" />
-    <Resource Include="Images\cricket19_0.png" />
-    <Resource Include="Images\cricket19_1.png" />
-    <Resource Include="Images\cricket19_2.png" />
-    <Resource Include="Images\cricket19_3.png" />
-    <Resource Include="Images\cricket20_0.png" />
-    <Resource Include="Images\cricket20_1.png" />
-    <Resource Include="Images\cricket20_2.png" />
-    <Resource Include="Images\cricket20_3.png" />
-    <Resource Include="Images\cricketBull_0.png" />
-    <Resource Include="Images\cricketBull_1.png" />
-    <Resource Include="Images\cricketBull_2.png" />
-    <Resource Include="Images\cricketBull_3.png" />
+    <Resource Include="Images\cricket15_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket15_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket15_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket15_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket16_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket16_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket16_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket16_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket17_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket17_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket17_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket17_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket18_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket18_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket18_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket18_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket19_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket19_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket19_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket19_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket20_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket20_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket20_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricket20_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricketBull_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricketBull_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricketBull_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cricketBull_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
