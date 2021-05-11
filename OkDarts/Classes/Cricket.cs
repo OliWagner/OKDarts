@@ -31,6 +31,7 @@ namespace OkDarts.Classes
 
         public void DartBoardBtnBack_Click(object sender, RoutedEventArgs e)
         {
+            isEnabledDartBoard = true;
             Wurfanzeige.BtnFertig.Content = "Weiter";
 
             CricketZustand zustand = Zustaende[Zustaende.Count - 2];
@@ -65,7 +66,6 @@ namespace OkDarts.Classes
         }
 
         bool isVisibleBtnfertigWinner = false;
-        bool isEnabledDartBoard = true;
         bool isVisiblBtnNoScore = true;
         public void DartBoard_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -336,6 +336,7 @@ namespace OkDarts.Classes
                 Wurf1Score = wurfwert;
             }
             AnzahlWuerfe++;
+            if (AnzahlWuerfe == 3) { isEnabledDartBoard = false; }
             Zustaende.Add(new CricketZustand(CricketMitspieler, AnzahlWuerfe, SpielerDran, Wurf1Score, Wurf2Score, Wurf3Score));
         }
 

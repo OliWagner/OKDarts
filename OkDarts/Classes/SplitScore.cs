@@ -20,6 +20,7 @@ namespace OkDarts.Classes
         List<int> Wurfwerte = new List<int>() { 15, 16, 0, 17, 18, 0, 19, 20, 25 };
         bool Getroffen = false;
 
+
         public SplitScore(List<string> mitspieler, UcWurfAnzeige wurfanzeige, UcTabelle tabelle, UcDartBoard dartBoard) : base(mitspieler, wurfanzeige, tabelle, dartBoard) {
             ErzeugeSpielerRunde(mitspieler);
             ZeichneGrids();
@@ -86,6 +87,7 @@ namespace OkDarts.Classes
 
         public void DartBoardBtnBack_Click(object sender, RoutedEventArgs e)
         {
+            isEnabledDartBoard = true;
             SplitScoreZustand zustand = Zustaende[Zustaende.Count - 2];
             Zustaende = new List<SplitScoreZustand>();
             Zustaende.Add(zustand);
@@ -108,7 +110,7 @@ namespace OkDarts.Classes
 
         public void WurfAnzeigeBtnFertig_Click(object sender, RoutedEventArgs e)
         {
-            
+            isEnabledDartBoard = true;
             AnzahlWuerfe = 0;
             Getroffen = false;
 
@@ -204,13 +206,16 @@ namespace OkDarts.Classes
                 Wurf1Score = wurfwert;
             }
             AnzahlWuerfe++;
+            if (AnzahlWuerfe == 3) {
+                isEnabledDartBoard = false;
+            }
             Zustaende.Add(new SplitScoreZustand(AnzahlWuerfe, SplitScoreMitspieler[SpielerDran].Score, Wurf1Score, Wurf2Score, Wurf3Score, Getroffen));
             
         }
 
         public void ZeichneGrids()
         {
-            DartBoard.Set(true, AnzahlWuerfe, Zustaende.Count > 1, true);
+            DartBoard.Set(isEnabledDartBoard, AnzahlWuerfe, Zustaende.Count > 1, true);
             Wurfanzeige.Set(SplitScoreMitspieler[SpielerDran].SpielerName + "  " + Wurfrunden[AnzahlRunden], Wurf1Score, Wurf2Score, Wurf3Score, SplitScoreMitspieler[SpielerDran].Score.ToString(), "SplitScore", AnzahlWuerfe == 3);
             ZeichneGridTabelle();
         }

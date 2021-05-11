@@ -20,6 +20,8 @@ namespace OkDarts.Classes
         public UcTabelle Tabelle { get; set; }
         public UcDartBoard DartBoard { get; set; }
 
+        public bool isEnabledDartBoard = true;
+
         public int AnzahlRunden = 0;
         public int SpielerDran = 0;
         public int SpielerGestartet = 0;
