@@ -21,6 +21,8 @@ namespace OkDarts.Classes
         public UcDartBoard DartBoard { get; set; }
 
         public bool isEnabledDartBoard = true;
+        public bool isVisibleBtnfertigWinner = false;
+        public bool isVisiblBtnNoScore = true;
 
         public int AnzahlRunden = 0;
         public int SpielerDran = 0;

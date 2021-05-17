@@ -96,9 +96,9 @@ namespace OkDarts.Classes
             if (X01Mitspieler[SpielerDran].Score == wurfValue + ScoreRunde) {
                 ScoreRunde += wurfValue;
                 Wurfanzeige.BtnFertig.Content = "Neue Runde";
-                DartBoard.Set(false, AnzahlWuerfe, true, false);
-                Wurfanzeige.BtnFertig.Visibility = Visibility.Visible;
+                isVisibleBtnfertigWinner = true;
                 isEnabledDartBoard = false;
+                isVisiblBtnNoScore = false;
                 SetZustand(wurfwert);
                 ZeichneGrids();
                 return false;
@@ -107,9 +107,9 @@ namespace OkDarts.Classes
             if (X01Mitspieler[SpielerDran].Score < wurfValue + ScoreRunde)
             {
                 ScoreRunde = 0;
-                DartBoard.Set(false, AnzahlWuerfe, true, false);
-                Wurfanzeige.BtnFertig.Visibility = Visibility.Visible;
+                isVisibleBtnfertigWinner = true;
                 isEnabledDartBoard = false;
+                isVisiblBtnNoScore = false;
                 SetZustand(wurfwert);
                 ZeichneGrids();
                 return false;
@@ -142,13 +142,17 @@ namespace OkDarts.Classes
             AnzahlWuerfe++;
             if (AnzahlWuerfe == 3) {
                 isEnabledDartBoard = false;
+                isVisiblBtnNoScore = false;
             }
             Zustaende.Add(new X01Zustand { AnzahlWuerfe = AnzahlWuerfe, ScoreRunde = ScoreRunde, Wurf1Score = Wurf1Score, Wurf2Score = Wurf2Score, Wurf3Score = Wurf3Score, SpielerDran = SpielerDran });
         }
 
         public void WurfAnzeigeBtnFertig_Click(object sender, RoutedEventArgs e)
         {
+            isVisibleBtnfertigWinner = false;
             isEnabledDartBoard = true;
+            isVisiblBtnNoScore = true;
+
             X01Mitspieler[SpielerDran].Score -= ScoreRunde;
 
             if (Wurfanzeige.BtnFertig.Content.Equals("Weiter"))
@@ -179,7 +183,8 @@ namespace OkDarts.Classes
         {
             isEnabledDartBoard = true;
             Wurfanzeige.BtnFertig.Content = "Weiter";
-            
+            isVisibleBtnfertigWinner = false;
+
             X01Zustand zustand = Zustaende[Zustaende.Count - 2];
             
             Zustaende = new List<X01Zustand>();
@@ -227,7 +232,7 @@ namespace OkDarts.Classes
 
         public void ZeichneGrids() {
             DartBoard.Set(isEnabledDartBoard, AnzahlWuerfe, Zustaende.Count > 1, true);
-            Wurfanzeige.Set(X01Mitspieler[SpielerDran].SpielerName, Wurf1Score, Wurf2Score, Wurf3Score, ScoreRunde.ToString(), StartScore.ToString(), AnzahlWuerfe == 3);
+            Wurfanzeige.Set(X01Mitspieler[SpielerDran].SpielerName, Wurf1Score, Wurf2Score, Wurf3Score, ScoreRunde.ToString(), StartScore.ToString(), AnzahlWuerfe == 3 || isVisibleBtnfertigWinner);
             ZeichneGridTabelle();
         }
 

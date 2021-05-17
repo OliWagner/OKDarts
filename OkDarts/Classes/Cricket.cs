@@ -33,6 +33,7 @@ namespace OkDarts.Classes
         {
             isEnabledDartBoard = true;
             Wurfanzeige.BtnFertig.Content = "Weiter";
+            isVisibleBtnfertigWinner = false;
 
             CricketZustand zustand = Zustaende[Zustaende.Count - 2];
             Zustaende = new List<CricketZustand>();
@@ -65,8 +66,7 @@ namespace OkDarts.Classes
             ZeichneGrids();
         }
 
-        bool isVisibleBtnfertigWinner = false;
-        bool isVisiblBtnNoScore = true;
+        
         public void DartBoard_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //Wurf zerlegen
@@ -261,10 +261,14 @@ namespace OkDarts.Classes
                 return false;
             foreach (CricketSpieler item in CricketMitspieler)
             {
-                int highest = CricketMitspieler.Where(x => x != item).OrderByDescending(x => x.Score).FirstOrDefault().Score;
-                if (CricketMitspieler[SpielerDran].Score < highest) {
-                    return false;
+                if (CricketMitspieler.Where(x => x != item).Any()) {
+                    int highest = CricketMitspieler.Where(x => x != item).OrderByDescending(x => x.Score).FirstOrDefault().Score;
+                    if (CricketMitspieler[SpielerDran].Score < highest)
+                    {
+                        return false;
+                    }
                 }
+                
             }
 
             return true;
@@ -336,7 +340,9 @@ namespace OkDarts.Classes
                 Wurf1Score = wurfwert;
             }
             AnzahlWuerfe++;
-            if (AnzahlWuerfe == 3) { isEnabledDartBoard = false; }
+            if (AnzahlWuerfe == 3) {
+                isEnabledDartBoard = false;
+            }
             Zustaende.Add(new CricketZustand(CricketMitspieler, AnzahlWuerfe, SpielerDran, Wurf1Score, Wurf2Score, Wurf3Score));
         }
 
@@ -345,6 +351,7 @@ namespace OkDarts.Classes
             isVisibleBtnfertigWinner = false;
             isEnabledDartBoard = true;
             isVisiblBtnNoScore = true;
+
             if (Wurfanzeige.BtnFertig.Content.Equals("Weiter"))
             {
                 NextSpieler();
