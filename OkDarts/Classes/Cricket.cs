@@ -31,9 +31,11 @@ namespace OkDarts.Classes
 
         public void DartBoardBtnBack_Click(object sender, RoutedEventArgs e)
         {
-            isEnabledDartBoard = true;
+            //isEnabledDartBoard = true;
             Wurfanzeige.BtnFertig.Content = "Weiter";
-            isVisibleBtnfertigWinner = false;
+            //isVisibleBtnfertigWinner = false;
+
+            SetButtons(true, false, isVisiblBtnNoScore);
 
             CricketZustand zustand = Zustaende[Zustaende.Count - 2];
             Zustaende = new List<CricketZustand>();
@@ -86,9 +88,12 @@ namespace OkDarts.Classes
                 if (CheckAufSieg(CricketMitspieler[SpielerDran]))
                 {
                     Wurfanzeige.BtnFertig.Content = "Neu!";
-                    isVisibleBtnfertigWinner = true;
-                    isEnabledDartBoard = false;
-                    isVisiblBtnNoScore = false;
+
+                    //isVisibleBtnfertigWinner = true;
+                    //isEnabledDartBoard = false;
+                    //isVisiblBtnNoScore = false;
+
+                    SetButtons(false, true, false);
                 }
                 
             }
@@ -341,16 +346,18 @@ namespace OkDarts.Classes
             }
             AnzahlWuerfe++;
             if (AnzahlWuerfe == 3) {
-                isEnabledDartBoard = false;
+                //isEnabledDartBoard = false;
+                SetButtons(false, isVisibleBtnfertigWinner, isVisiblBtnNoScore);
             }
             Zustaende.Add(new CricketZustand(CricketMitspieler, AnzahlWuerfe, SpielerDran, Wurf1Score, Wurf2Score, Wurf3Score));
         }
 
         public void WurfAnzeigeBtnFertig_Click(object sender, RoutedEventArgs e)
         {
-            isVisibleBtnfertigWinner = false;
-            isEnabledDartBoard = true;
-            isVisiblBtnNoScore = true;
+            //isVisibleBtnfertigWinner = false;
+            //isEnabledDartBoard = true;
+            //isVisiblBtnNoScore = true;
+            SetButtons(true, false, true);
 
             if (Wurfanzeige.BtnFertig.Content.Equals("Weiter"))
             {

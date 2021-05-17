@@ -88,6 +88,18 @@ namespace OkDarts.Classes
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ieDartBoard">Enables/Disables Dartboard</param>
+        /// <param name="ivBtnFertigWinner">Shows/hides Button Fertig/Weiter</param>
+        /// <param name="ivBtnNoScore">Shows/hides Button No Score</param>
+        public void SetButtons(bool ieDartBoard, bool ivBtnFertigWinner, bool ivBtnNoScore) {
+            isEnabledDartBoard = ieDartBoard;
+            isVisibleBtnfertigWinner = ivBtnFertigWinner;
+            isVisiblBtnNoScore = ivBtnNoScore;
+    }
+
         public void SetGrid(Grid grid, string content, int column, int row, int columnspan, int rowspan)
         {
             Label element = new Label();

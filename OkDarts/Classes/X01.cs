@@ -96,9 +96,10 @@ namespace OkDarts.Classes
             if (X01Mitspieler[SpielerDran].Score == wurfValue + ScoreRunde) {
                 ScoreRunde += wurfValue;
                 Wurfanzeige.BtnFertig.Content = "Neue Runde";
-                isVisibleBtnfertigWinner = true;
-                isEnabledDartBoard = false;
-                isVisiblBtnNoScore = false;
+                //isVisibleBtnfertigWinner = true;
+                //isEnabledDartBoard = false;
+                //isVisiblBtnNoScore = false;
+                SetButtons(false, true, false);
                 SetZustand(wurfwert);
                 ZeichneGrids();
                 return false;
@@ -107,9 +108,10 @@ namespace OkDarts.Classes
             if (X01Mitspieler[SpielerDran].Score < wurfValue + ScoreRunde)
             {
                 ScoreRunde = 0;
-                isVisibleBtnfertigWinner = true;
-                isEnabledDartBoard = false;
-                isVisiblBtnNoScore = false;
+                //isVisibleBtnfertigWinner = true;
+                //isEnabledDartBoard = false;
+                //isVisiblBtnNoScore = false;
+                SetButtons(false, true, false);
                 SetZustand(wurfwert);
                 ZeichneGrids();
                 return false;
@@ -141,17 +143,19 @@ namespace OkDarts.Classes
             }
             AnzahlWuerfe++;
             if (AnzahlWuerfe == 3) {
-                isEnabledDartBoard = false;
-                isVisiblBtnNoScore = false;
+                //isEnabledDartBoard = false;
+                //isVisiblBtnNoScore = false;
+                SetButtons(false, isVisibleBtnfertigWinner, false);
             }
             Zustaende.Add(new X01Zustand { AnzahlWuerfe = AnzahlWuerfe, ScoreRunde = ScoreRunde, Wurf1Score = Wurf1Score, Wurf2Score = Wurf2Score, Wurf3Score = Wurf3Score, SpielerDran = SpielerDran });
         }
 
         public void WurfAnzeigeBtnFertig_Click(object sender, RoutedEventArgs e)
         {
-            isVisibleBtnfertigWinner = false;
-            isEnabledDartBoard = true;
-            isVisiblBtnNoScore = true;
+            //isVisibleBtnfertigWinner = false;
+            //isEnabledDartBoard = true;
+            //isVisiblBtnNoScore = true;
+            SetButtons(true, false, true);
 
             X01Mitspieler[SpielerDran].Score -= ScoreRunde;
 
@@ -181,9 +185,10 @@ namespace OkDarts.Classes
 
         public void DartBoardBtnBack_Click(object sender, RoutedEventArgs e)
         {
-            isEnabledDartBoard = true;
+            //isEnabledDartBoard = true;
             Wurfanzeige.BtnFertig.Content = "Weiter";
-            isVisibleBtnfertigWinner = false;
+            //isVisibleBtnfertigWinner = false;
+            SetButtons(true, false, isVisiblBtnNoScore);
 
             X01Zustand zustand = Zustaende[Zustaende.Count - 2];
             
