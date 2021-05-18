@@ -14,14 +14,16 @@ namespace OkDarts.Classes
 {
     public class Cricket : MainSpiel, IMainSpiel
     {
+        bool IsCutThroat = false;
         List<CricketSpieler> CricketMitspieler;
         List<CricketZustand> Zustaende = new List<CricketZustand>();
         List<string> ErlaubteWuerfe = new List<string>() { "S 15", "D 15", "T 15", "S 16", "D 16", "T 16", "S 17", "D 17", "T 17", "S 18", "D 18", "T 18", "S 19", "D 19", "T 19", "S 20", "D 20", "T 20", "S B", "D B" };
 
-        public Cricket(List<string> mitspieler, UcWurfAnzeige wurfanzeige, UcTabelle tabelle, UcDartBoard dartBoard) : base(mitspieler, wurfanzeige, tabelle, dartBoard)
+        public Cricket(List<string> mitspieler, UcWurfAnzeige wurfanzeige, UcTabelle tabelle, UcDartBoard dartBoard, bool isCutThroat) : base(mitspieler, wurfanzeige, tabelle, dartBoard)
         {
             ErzeugeSpielerRunde(mitspieler);
             ZeichneGrids();
+            IsCutThroat = isCutThroat;
             //Der aktuelle Zustand muss zu Beginn einmal gesetzt werden
             Zustaende = new List<CricketZustand>();
             Zustaende.Add(new CricketZustand(CricketMitspieler, 0, 0, "", "", ""));
@@ -122,8 +124,9 @@ namespace OkDarts.Classes
                     if (CricketMitspieler[SpielerDran].Wuerfe15 > 3) {
                         int multi = CricketMitspieler[SpielerDran].Wuerfe15 - 3;
                         CricketMitspieler[SpielerDran].Wuerfe15 = 3;
-                        if(zahlOffen)
-                            CricketMitspieler[SpielerDran].Score += multi * zahl;
+                        if (zahlOffen)
+                            AddiereSubtrahiere(multi, zahl);
+                            //CricketMitspieler[SpielerDran].Score += multi * zahl;
                     }
                     break;
                 case 16:
@@ -133,7 +136,9 @@ namespace OkDarts.Classes
                         int multi = CricketMitspieler[SpielerDran].Wuerfe16 - 3;
                         CricketMitspieler[SpielerDran].Wuerfe16 = 3;
                         if (zahlOffen)
-                            CricketMitspieler[SpielerDran].Score += multi * zahl;
+                            AddiereSubtrahiere(multi, zahl);
+
+                        //CricketMitspieler[SpielerDran].Score += multi * zahl;
                     }
                     break;
                 case 17:
@@ -143,7 +148,9 @@ namespace OkDarts.Classes
                         int multi = CricketMitspieler[SpielerDran].Wuerfe17 - 3;
                         CricketMitspieler[SpielerDran].Wuerfe17 = 3;
                         if (zahlOffen)
-                            CricketMitspieler[SpielerDran].Score += multi * zahl;
+                            AddiereSubtrahiere(multi, zahl);
+
+                        //CricketMitspieler[SpielerDran].Score += multi * zahl;
                     }
                     break;
                 case 18:
@@ -153,7 +160,9 @@ namespace OkDarts.Classes
                         int multi = CricketMitspieler[SpielerDran].Wuerfe18 - 3;
                         CricketMitspieler[SpielerDran].Wuerfe18 = 3;
                         if (zahlOffen)
-                            CricketMitspieler[SpielerDran].Score += multi * zahl;
+                            AddiereSubtrahiere(multi, zahl);
+
+                        //CricketMitspieler[SpielerDran].Score += multi * zahl;
                     }
                     break;
                 case 19:
@@ -163,7 +172,9 @@ namespace OkDarts.Classes
                         int multi = CricketMitspieler[SpielerDran].Wuerfe19 - 3;
                         CricketMitspieler[SpielerDran].Wuerfe19 = 3;
                         if (zahlOffen)
-                            CricketMitspieler[SpielerDran].Score += multi * zahl;
+                            AddiereSubtrahiere(multi, zahl);
+
+                        //CricketMitspieler[SpielerDran].Score += multi * zahl;
                     }
                     break;
                 case 20:
@@ -173,7 +184,9 @@ namespace OkDarts.Classes
                         int multi = CricketMitspieler[SpielerDran].Wuerfe20 - 3;
                         CricketMitspieler[SpielerDran].Wuerfe20 = 3;
                         if (zahlOffen)
-                            CricketMitspieler[SpielerDran].Score += multi * zahl;
+                            AddiereSubtrahiere(multi, zahl);
+
+                        //CricketMitspieler[SpielerDran].Score += multi * zahl;
                     }
                     break;
                 case 25:
@@ -183,9 +196,63 @@ namespace OkDarts.Classes
                         int multi = CricketMitspieler[SpielerDran].WuerfeBull - 3;
                         CricketMitspieler[SpielerDran].WuerfeBull = 3;
                         if (zahlOffen)
-                            CricketMitspieler[SpielerDran].Score += multi * zahl;
+                            AddiereSubtrahiere(multi, zahl);
+
+                        //CricketMitspieler[SpielerDran].Score += multi * zahl;
                     }
                     break;
+            }
+        }
+
+        private void AddiereSubtrahiere(int multi, int zahl) {
+            if (IsCutThroat) {
+                switch (zahl) {
+                    case 15:
+                        foreach (CricketSpieler item in CricketMitspieler.Where(x => x.Wuerfe15 < 3).ToList())
+                        {
+                            item.Score += multi * zahl;
+                        }
+                        break;
+                    case 16:
+                        foreach (CricketSpieler item in CricketMitspieler.Where(x => x.Wuerfe16 < 3).ToList())
+                        {
+                            item.Score += multi * zahl;
+                        }
+                        break;
+                    case 17:
+                        foreach (CricketSpieler item in CricketMitspieler.Where(x => x.Wuerfe17 < 3).ToList())
+                        {
+                            item.Score += multi * zahl;
+                        }
+                        break;
+                    case 18:
+                        foreach (CricketSpieler item in CricketMitspieler.Where(x => x.Wuerfe18 < 3).ToList())
+                        {
+                            item.Score += multi * zahl;
+                        }
+                        break;
+                    case 19:
+                        foreach (CricketSpieler item in CricketMitspieler.Where(x => x.Wuerfe19 < 3).ToList())
+                        {
+                            item.Score += multi * zahl;
+                        }
+                        break;
+                    case 20:
+                        foreach (CricketSpieler item in CricketMitspieler.Where(x => x.Wuerfe20 < 3).ToList())
+                        {
+                            item.Score += multi * zahl;
+                        }
+                        break;
+                    case 25:
+                        foreach (CricketSpieler item in CricketMitspieler.Where(x => x.WuerfeBull < 3).ToList())
+                        {
+                            item.Score += multi * zahl;
+                        }
+                        break;
+                }
+            }
+            else {
+                CricketMitspieler[SpielerDran].Score += multi * zahl;
             }
         }
 
@@ -266,14 +333,24 @@ namespace OkDarts.Classes
                 return false;
             foreach (CricketSpieler item in CricketMitspieler)
             {
-                if (CricketMitspieler.Where(x => x != item).Any()) {
-                    int highest = CricketMitspieler.Where(x => x != item).OrderByDescending(x => x.Score).FirstOrDefault().Score;
-                    if (CricketMitspieler[SpielerDran].Score < highest)
+                if (IsCutThroat) {
+                    if (CricketMitspieler.Where(x => x != item).Any())
                     {
-                        return false;
+                        int lowest = CricketMitspieler.Where(x => x != item).OrderBy(x => x.Score).FirstOrDefault().Score;
+                        if (CricketMitspieler[SpielerDran].Score > lowest)
+                        {
+                            return false;
+                        }
+                    }
+                } else {
+                    if (CricketMitspieler.Where(x => x != item).Any()) {
+                        int highest = CricketMitspieler.Where(x => x != item).OrderByDescending(x => x.Score).FirstOrDefault().Score;
+                        if (CricketMitspieler[SpielerDran].Score < highest)
+                        {
+                            return false;
+                        }
                     }
                 }
-                
             }
 
             return true;

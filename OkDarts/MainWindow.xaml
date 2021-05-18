@@ -55,13 +55,19 @@
                             </MenuItem.Icon>
                         </MenuItem>
                     </MenuItem>
-                    
-                    <MenuItem Header="Cricket" Tag="Cricket" Click="MenuItem_Click">
-                        <MenuItem.Icon>
-                            <Image Source="IconDarts.ico" />
-                        </MenuItem.Icon>
-                    </MenuItem>
 
+                    <MenuItem Header="Cricket">
+                        <MenuItem Header="Classic" Tag="Cricket" Click="MenuItem_Click">
+                            <MenuItem.Icon>
+                                <Image Source="IconDarts.ico" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Cut Throat" Tag="CutThroat" Click="MenuItem_Click">
+                            <MenuItem.Icon>
+                                <Image Source="IconDarts.ico" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
                     <MenuItem Header="Elimination">
                         <MenuItem Header="301 Elimination" Tag="Elimination 301" Click="MenuItem_Click">
                             <MenuItem.Icon>

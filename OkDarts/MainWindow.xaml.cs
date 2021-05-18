@@ -125,7 +125,12 @@ namespace OkDarts
 
                 if (item.Tag.ToString().Equals("Cricket"))
                 {
-                    spiel = new Cricket(mitspieler, WurfAnzeige, Tabelle, DartBoard);
+                    spiel = new Cricket(mitspieler, WurfAnzeige, Tabelle, DartBoard, false);
+                }
+
+                if (item.Tag.ToString().Equals("CutThroat"))
+                {
+                    spiel = new Cricket(mitspieler, WurfAnzeige, Tabelle, DartBoard, true);
                 }
 
                 if (item.Tag.ToString().Equals("SplitScore"))
