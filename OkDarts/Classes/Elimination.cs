@@ -142,7 +142,7 @@ namespace OkDarts.Classes
             {
                 Wurfanzeige.BtnFertig.Visibility = Visibility.Visible;
                 //isEnabledDartBoard = false;
-                SetButtons(false, isVisibleBtnfertigWinner, isVisiblBtnNoScore);
+                SetButtons(false, isVisibleBtnfertigWinner, false);
                 Wurfanzeige.BtnFertig.Visibility = Visibility.Visible;
             }
             return true;
@@ -213,7 +213,7 @@ namespace OkDarts.Classes
             //isEnabledDartBoard = true;
             Wurfanzeige.BtnFertig.Content = "Weiter";
             //isVisibleBtnfertigWinner = false;
-            SetButtons(true, false, isVisiblBtnNoScore);
+            SetButtons(true, false, true);
 
             EliminationZustand zustand = Zustaende[Zustaende.Count - 2];
 
@@ -265,7 +265,7 @@ namespace OkDarts.Classes
 
         public void ZeichneGrids()
         {
-            DartBoard.Set(isEnabledDartBoard, AnzahlWuerfe, Zustaende.Count > 1, true);
+            DartBoard.Set(isEnabledDartBoard, AnzahlWuerfe, Zustaende.Count > 1, isVisiblBtnNoScore);
             Wurfanzeige.Set(EliminationMitspieler[SpielerDran].SpielerName, Wurf1Score, Wurf2Score, Wurf3Score, ScoreRunde.ToString(), imageResource, AnzahlWuerfe == 3 || isVisibleBtnfertigWinner);
             ZeichneGridTabelle();
         }

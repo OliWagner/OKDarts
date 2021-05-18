@@ -88,7 +88,7 @@ namespace OkDarts.Classes
         public void DartBoardBtnBack_Click(object sender, RoutedEventArgs e)
         {
             //isEnabledDartBoard = true;
-            SetButtons(true, isVisibleBtnfertigWinner, isVisiblBtnNoScore);
+            SetButtons(true, isVisibleBtnfertigWinner, true);
             SplitScoreZustand zustand = Zustaende[Zustaende.Count - 2];
             Zustaende = new List<SplitScoreZustand>();
             Zustaende.Add(zustand);
@@ -210,7 +210,7 @@ namespace OkDarts.Classes
             AnzahlWuerfe++;
             if (AnzahlWuerfe == 3) {
                 //isEnabledDartBoard = false;
-                SetButtons(false, isVisibleBtnfertigWinner, isVisiblBtnNoScore);
+                SetButtons(false, isVisibleBtnfertigWinner, false);
             }
             Zustaende.Add(new SplitScoreZustand(AnzahlWuerfe, SplitScoreMitspieler[SpielerDran].Score, Wurf1Score, Wurf2Score, Wurf3Score, Getroffen));
             
@@ -218,7 +218,7 @@ namespace OkDarts.Classes
 
         public void ZeichneGrids()
         {
-            DartBoard.Set(isEnabledDartBoard, AnzahlWuerfe, Zustaende.Count > 1, true);
+            DartBoard.Set(isEnabledDartBoard, AnzahlWuerfe, Zustaende.Count > 1, isVisiblBtnNoScore);
             Wurfanzeige.Set(SplitScoreMitspieler[SpielerDran].SpielerName + "  " + Wurfrunden[AnzahlRunden], Wurf1Score, Wurf2Score, Wurf3Score, SplitScoreMitspieler[SpielerDran].Score.ToString(), "SplitScore", AnzahlWuerfe == 3);
             ZeichneGridTabelle();
         }

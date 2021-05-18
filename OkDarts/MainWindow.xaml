@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OkDarts"
         xmlns:local2="clr-namespace:WpfControlLibraryDarts;assembly=WpfControlLibraryDarts"             
         mc:Ignorable="d"
-        Title="OK Darts" Height="1150" Width="1500" Icon="IconDarts.ico">
+        Title="OK Darts" Height="775" Width="1000" Icon="IconDarts.ico">
     <Window.Background>
         <ImageBrush ImageSource="/Images/MainStartBg.png"></ImageBrush>
     </Window.Background>

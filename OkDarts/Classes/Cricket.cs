@@ -35,7 +35,7 @@ namespace OkDarts.Classes
             Wurfanzeige.BtnFertig.Content = "Weiter";
             //isVisibleBtnfertigWinner = false;
 
-            SetButtons(true, false, isVisiblBtnNoScore);
+            SetButtons(true, false, true);
 
             CricketZustand zustand = Zustaende[Zustaende.Count - 2];
             Zustaende = new List<CricketZustand>();
@@ -347,7 +347,7 @@ namespace OkDarts.Classes
             AnzahlWuerfe++;
             if (AnzahlWuerfe == 3) {
                 //isEnabledDartBoard = false;
-                SetButtons(false, isVisibleBtnfertigWinner, isVisiblBtnNoScore);
+                SetButtons(false, isVisibleBtnfertigWinner, false);
             }
             Zustaende.Add(new CricketZustand(CricketMitspieler, AnzahlWuerfe, SpielerDran, Wurf1Score, Wurf2Score, Wurf3Score));
         }
