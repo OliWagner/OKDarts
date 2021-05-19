@@ -8,9 +8,9 @@ using System.Windows;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("OkDarts")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Hilfe für den netten Dartabend ohne Rechnen")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Onlinekram")]
 [assembly: AssemblyProduct("OkDarts")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]

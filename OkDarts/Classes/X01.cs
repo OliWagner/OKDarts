@@ -18,7 +18,6 @@ namespace OkDarts.Classes
         private int ScoreRunde = 0;
         private List<X01Zustand> Zustaende = new List<X01Zustand>();
         
-
         public X01(List<string> mitspieler, UcWurfAnzeige wurfanzeige, UcTabelle tabelle, UcDartBoard dartBoard, int startScore) : base(mitspieler, wurfanzeige, tabelle, dartBoard)
         {
             StartScore = startScore;
@@ -30,8 +29,6 @@ namespace OkDarts.Classes
 
             SetEvents();
         }
-
-       
 
         public void SetEvents()
         {

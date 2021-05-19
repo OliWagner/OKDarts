@@ -11,7 +11,8 @@
   <AdditionalConfig>
     <ConfigSetting Id="BuildUri" />
     <ConfigSetting Id="TfsUri" />
-    <ConfigSetting Id="settings.file.path" Value="C:\Sonarqube\sonar-scanner-msbuild-4.10.0.19059-net46\SonarQube.Analysis.xml" />
+    <ConfigSetting Id="VsCoverageConverterToolPath" />
+    <ConfigSetting Id="settings.file.path" Value="C:\Sonarqube\sonar-scanner-msbuild-5.2.1.31210-net46\SonarQube.Analysis.xml" />
   </AdditionalConfig>
   <ServerSettings>
     <Property Name="sonaranalyzer-cs.nuget.packageVersion">8.9.0.19135</Property>
@@ -98,7 +99,7 @@
     <Property Name="sonaranalyzer-vbnet.pluginKey">vbnet</Property>
     <Property Name="sonar.updatecenter.url">https://update.sonarsource.org/update-center.properties</Property>
     <Property Name="sonar.core.id">BF41A1F2-AXUrPof4syKwpojaZz9K</Property>
-    <Property Name="sonar.core.startTime">18.05.2021 10:16:02</Property>
+    <Property Name="sonar.core.startTime">19.05.2021 14:44:47</Property>
   </ServerSettings>
   <LocalSettings>
     <Property Name="sonar.host.url">http://localhost:9000</Property>
@@ -106,8 +107,8 @@
   <AnalyzersSettings>
     <AnalyzerSettings>
       <Language>cs</Language>
-      <RuleSetFilePath>C:\Users\info\source\repos\OkDarts\.sonarqube\conf\SonarQubeRoslyn-cs.ruleset</RuleSetFilePath>
-      <TestProjectRuleSetFilePath>C:\Users\info\source\repos\OkDarts\.sonarqube\conf\SonarQubeRoslyn-cs-test.ruleset</TestProjectRuleSetFilePath>
+      <RulesetPath>C:\Users\info\source\repos\OkDarts\.sonarqube\conf\Sonar-cs.ruleset</RulesetPath>
+      <DeactivatedRulesetPath>C:\Users\info\source\repos\OkDarts\.sonarqube\conf\Sonar-cs-none.ruleset</DeactivatedRulesetPath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="8.9.0.19135" StaticResourceName="SonarAnalyzer-8.9.0.19135.zip">
           <AssemblyPaths>
@@ -131,8 +132,8 @@
     </AnalyzerSettings>
     <AnalyzerSettings>
       <Language>vbnet</Language>
-      <RuleSetFilePath>C:\Users\info\source\repos\OkDarts\.sonarqube\conf\SonarQubeRoslyn-vbnet.ruleset</RuleSetFilePath>
-      <TestProjectRuleSetFilePath>C:\Users\info\source\repos\OkDarts\.sonarqube\conf\SonarQubeRoslyn-vbnet-test.ruleset</TestProjectRuleSetFilePath>
+      <RulesetPath>C:\Users\info\source\repos\OkDarts\.sonarqube\conf\Sonar-vbnet.ruleset</RulesetPath>
+      <DeactivatedRulesetPath>C:\Users\info\source\repos\OkDarts\.sonarqube\conf\Sonar-vbnet-none.ruleset</DeactivatedRulesetPath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="8.9.0.19135" StaticResourceName="SonarAnalyzer-8.9.0.19135.zip">
           <AssemblyPaths>

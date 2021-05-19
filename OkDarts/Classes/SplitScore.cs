@@ -20,7 +20,7 @@ namespace OkDarts.Classes
         List<int> Wurfwerte = new List<int>() { 15, 16, 0, 17, 18, 0, 19, 20, 25 };
         bool Getroffen = false;
 
-
+ 
         public SplitScore(List<string> mitspieler, UcWurfAnzeige wurfanzeige, UcTabelle tabelle, UcDartBoard dartBoard) : base(mitspieler, wurfanzeige, tabelle, dartBoard) {
             ErzeugeSpielerRunde(mitspieler);
             ZeichneGrids();
@@ -191,7 +191,6 @@ namespace OkDarts.Classes
                 }
             }
         }
-
 
         public void SetZustand(string wurfwert)
         {
